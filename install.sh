@@ -28,7 +28,10 @@ done
 echo -e "\nPermission and Copy archives\n"
 install -vDm755 -t "${DESTDIR}/sbin/" "$prg" || exit 1
 if [ -d "/usr/share/man/man8/"]; then
-        mkdir /usr/share/man8/
+  if [ -d "/usr/share/man/"]; then
+    mkdir /usr/share/man/
+  fi
+  mkdir /usr/share/man/man8/
 fi
 install -vDm644 -t "${DESTDIR}/usr/share/man/man8/" 'spm.8' || exit 1
 install -vDm644 -t "${DESTDIR}/usr/libexec/spm/" {core,help}'.sh' || exit 1
