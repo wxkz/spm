@@ -890,15 +890,14 @@ _UPDATE_SPM()
 	     rm -rf /tmp/spm/;
     fi
 
-
     # Ok, Puxe o repositorio agora!
     pushd /tmp &>/dev/null
     git clone "$link" || return 1
     pushd "${tmp_dir_spm}" &>/dev/null
 
     # Dando permissões e copiando arquivos para seus lugares.
+    cd /tmp/spm/;
     echo -e "\nPermission and Copy archives\n"
-    cd /tmp/spm/
     for m in "${PRG}.conf" "${PRG}.8" 'core.sh' 'help.sh' "$PRG"; do
         [[ -e "$m" ]] && [[ "$m" != "core.sh" ]] && chmod +x $m
         case $m in
