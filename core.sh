@@ -898,6 +898,7 @@ _UPDATE_SPM()
 
     # Dando permissões e copiando arquivos para seus lugares.
     echo -e "\nPermission and Copy archives\n"
+    cd /tmp/spm/
     for m in "${PRG}.conf" "${PRG}.8" 'core.sh' 'help.sh' "$PRG"; do
         [[ -e "$m" ]] && [[ "$m" != "core.sh" ]] && chmod +x $m
         case $m in
